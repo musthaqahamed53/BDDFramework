@@ -78,13 +78,5 @@ public class LoginPage {
 
 	}
 
-	public static void main(String[] args) {
-		String textError = "Epic sadface: Sorry, this user has been locked out.";
-
-		if (textError == "Epic sadface: Sorry, this user has been locked out."
-				|| textError == "Epic sadface: Username and password do not match any user in this service") {
-			System.out.println("True");
-		}
-	}
 
 }
