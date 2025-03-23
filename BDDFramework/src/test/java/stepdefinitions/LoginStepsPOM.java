@@ -11,20 +11,24 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pageobjects.HomePage;
 import pageobjects.LoginPage;
+import utils.DriverConf;
 
-public class LoginStepsPOM {
+public class LoginStepsPOM extends DriverConf{
 
-	static WebDriver driver;
-	LoginPage loginPage;
-	HomePage homePage;
+//	static WebDriver driver;
+	WebDriver driver = DriverConf.getDriver(); 
+	LoginPage loginPage = new LoginPage();
+	HomePage homePage = new HomePage();
 	
 	@Given("User is on Login Page")
 	public void user_is_on_login_page() throws InterruptedException {
-		driver = new ChromeDriver();
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-		driver.get("https://www.saucedemo.com/");
-		Thread.sleep(3000);
-		loginPage = new LoginPage(driver);
+		
+//		driver = new ChromeDriver();
+//		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+//		driver.get("https://www.saucedemo.com/");
+//		Thread.sleep(3000);
+//		loginPage = new LoginPage(driver);
+		System.out.println("Login Page Step Def Filler");
 	}
 
 	@When("User enters valid {string} and {string}")
@@ -48,7 +52,7 @@ public class LoginStepsPOM {
 	@And("User is navigated to Home Page")
 	public void user_is_navigated_to_home_page() {
 //		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(10));
-		homePage = new HomePage(driver);
+//		homePage = new HomePage();
 		
 		homePage.isLogoDisplayed(loginPage);
 		homePage.isCartDisplayed();
@@ -62,6 +66,7 @@ public class LoginStepsPOM {
 
 	@Then("Close the browser")
 	public void close_the_browser() {
-		driver.quit();
+//		driver.quit();
+		System.out.println("Close Browser Filler");
 	}
 }

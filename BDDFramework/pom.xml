@@ -49,6 +49,13 @@
 			<artifactId>maven-surefire-plugin</artifactId>
 			<version>3.5.2</version>
 		</dependency>
+		
+		<!-- WebDriverManager for managing WebDriver binaries -->
+		<dependency>
+			<groupId>io.github.bonigarcia</groupId>
+			<artifactId>webdrivermanager</artifactId>
+			<version>5.9.2</version>
+		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-compiler-plugin -->
 		<dependency>

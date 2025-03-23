@@ -6,13 +6,17 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
+import utils.DriverConf;
+
 public class LoginPage {
+	
 	WebDriver driver;
 	By usernameLoc = By.xpath("//input[@id='user-name']");
 	By passwordLoc = By.xpath("//input[@id='password']");
@@ -24,8 +28,11 @@ public class LoginPage {
 	@FindBy(xpath = "//h3[@data-test='error']")
 	WebElement errorMessage;
 
-	public LoginPage(WebDriver driver) {
-		this.driver = driver;
+	@FindBy(xpath = "//div[@class='login_logo']")
+	public WebElement loginLogo;
+
+	public LoginPage() {
+		this.driver = DriverConf.getDriver();
 		PageFactory.initElements(driver, this);
 	}
 
@@ -63,7 +70,7 @@ public class LoginPage {
 		}
 
 	}
-	
+
 	public void checkForErrorMessagePass() {
 
 		try {
@@ -77,6 +84,5 @@ public class LoginPage {
 		}
 
 	}
-
 
 }
