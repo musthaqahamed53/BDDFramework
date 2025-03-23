@@ -33,7 +33,7 @@
             <configuration>
                 <archive>
                     <manifestEntries>
-                        <Main-Class>com.example.Main</Main-Class>
+                        <Main-Class>example.Main</Main-Class>
                     </manifestEntries>
                 </archive>
             </configuration>
