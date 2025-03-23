@@ -1,5 +1,5 @@
 package example;
-
+//import io.cucumber.core.cli.Main;
 public class Main {
 	public static void main(String[] args) {
 		System.out.println("Starting Cucumber tests...");
@@ -11,6 +11,6 @@ public class Main {
 		};
 
 		// This will execute the Cucumber tests
-		Main.main(cucumberArgs);
+		io.cucumber.core.cli.Main.main(cucumberArgs);
 	}
 }
