@@ -1,6 +1,7 @@
 package stepdefinitions;
 
 import java.time.Duration;
+import java.util.logging.Logger;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -9,9 +10,11 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import pageobjects.HomePage;
 import pageobjects.LoginPage;
 import utils.DriverConf;
+import utils.ExtentReportListener;
 
 public class LoginStepsPOM extends DriverConf{
 
@@ -19,6 +22,8 @@ public class LoginStepsPOM extends DriverConf{
 	WebDriver driver = DriverConf.getDriver(); 
 	LoginPage loginPage = new LoginPage();
 	HomePage homePage = new HomePage();
+	private static final Logger logger = Logger.getLogger(WebDriverManager.class.getName());
+	ExtentReportListener report = new ExtentReportListener();
 	
 	@Given("User is on Login Page")
 	public void user_is_on_login_page() throws InterruptedException {
@@ -29,6 +34,7 @@ public class LoginStepsPOM extends DriverConf{
 //		Thread.sleep(3000);
 //		loginPage = new LoginPage(driver);
 		System.out.println("Login Page Step Def Filler");
+		report.logStepWithScreenshot("User navigated to login page", true);
 	}
 
 	@When("User enters valid {string} and {string}")
@@ -46,6 +52,7 @@ public class LoginStepsPOM extends DriverConf{
 	@And("Clicks on Login Button")
 	public void clicks_on_login_button() {
 		loginPage.clickLogin();
+		logger.info("clicks_on_login_button");
 		
 	}
 
